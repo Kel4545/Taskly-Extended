@@ -20,31 +20,31 @@ class TasksController < ApplicationController
     end
   end
 
-  def destroy
-    @task = Task.find(params[:id])
-    @task.destroy
-    if @task.save
-      flash[:notice] ="Task was deleted successfully!"
-    redirect_to root_path
-    else
-      render :new
-    end
-
-  def update
-    @task = Task.find(params[:id])
-    @task.delete
-    redirect_to root_path
-  end
-
   def parse_due_date(due_date)
     if due_date
       string_date = due_date.to_s
       string_date.to_date
     end
 
+    def destroy
+      @task = Task.find(params[:id])
+      @task.destroy
+      if @task.save
+        flash[:notice] ="Task was deleted successfully!"
+        redirect_to root_path
+      else
+        render :new
+      end
 
+      def update
+        @task = Task.find(params[:id])
+        @task.delete
+        redirect_to root_path
+      end
+
+
+    end
   end
-end
 end
 
 
