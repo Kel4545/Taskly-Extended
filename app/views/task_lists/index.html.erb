@@ -10,9 +10,7 @@
       <h1><%= link_to task_list.name, task_list_path(task_list) %></h1>
       <a href="/task_lists/<%= task_list.id %>/edit">Edit</a>
       <a href="/task_lists/<%= task_list.id %>/new">+ Add Task </a>
-      <button>
-        <% task_list %>Open
-      </button>
+      <button data-text-swap="Hide">Show</button>
       <% if task_list.tasks.blank? %>
         <div>
           <em>Nothing here to see!</em>
